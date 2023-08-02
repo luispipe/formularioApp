@@ -122,4 +122,12 @@
         android:layout_height="wrap_content"
         android:text="Enviar Solicitud" />
 
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
 </LinearLayout>
