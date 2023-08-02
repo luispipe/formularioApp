@@ -55,6 +55,7 @@
         android:textAlignment="center" />
 
     <RadioGroup
+        android:id="@+id/radioGroupPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
