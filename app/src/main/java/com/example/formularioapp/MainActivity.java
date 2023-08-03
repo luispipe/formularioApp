@@ -46,24 +46,40 @@ public class MainActivity extends AppCompatActivity {
         house.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                farm.setChecked(false);
-                apart.setChecked(false);
+                if (house.isChecked()){
+                    house.setChecked(false);
+                }else{
+                    house.setChecked(true);
+                    farm.setChecked(false);
+                    apart.setChecked(false);
+                }
             }
         });
 
         farm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                house.setChecked(false);
-                apart.setChecked(false);
+
+                if(farm.isChecked()){
+                    farm.setChecked(false);
+                }else {
+                    farm.setChecked(true);
+                    house.setChecked(false);
+                    apart.setChecked(false);
+                }
             }
         });
 
         apart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                house.setChecked(false);
-                farm.setChecked(false);
+                if(apart.isChecked()){
+                    apart.setChecked(false);
+                }else{
+                    apart.setChecked(false);
+                    house.setChecked(false);
+                    farm.setChecked(false);
+                }
             }
         });
         boton.setOnClickListener(new View.OnClickListener() {
