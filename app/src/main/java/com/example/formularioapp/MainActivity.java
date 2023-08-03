@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         EditText phone= findViewById(R.id.editTextPhone);
         EditText email= findViewById(R.id.editTextTextEmailAddress);
         RadioGroup radio= findViewById(R.id.radioGroupPlace);
+        RadioButton house= findViewById(R.id.radioButtonHouse);
+        RadioButton farm= findViewById(R.id.radioButtonFarm);
+        RadioButton apart= findViewById(R.id.radioButtonApart);
         CheckBox panel= findViewById(R.id.checkBoxSolar);
         CheckBox aereo= findViewById(R.id.checkBoxAero);
         CheckBox otro= findViewById(R.id.checkBoxOther);
@@ -39,6 +43,29 @@ public class MainActivity extends AppCompatActivity {
         //Cualquier elemento de la interfaz imagenes, botones, textos
         //se les puede asociar una acción o evento
 
+        house.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                farm.setChecked(false);
+                apart.setChecked(false);
+            }
+        });
+
+        farm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                house.setChecked(false);
+                apart.setChecked(false);
+            }
+        });
+
+        apart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                house.setChecked(false);
+                farm.setChecked(false);
+            }
+        });
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,10 +90,12 @@ public class MainActivity extends AppCompatActivity {
                    phone.getText().toString().isEmpty() ||
                    email.getText().toString().isEmpty()
                 ){
+
+
                     //Toast permite crear mensajes emergentes en la pantalla
-                    Toast.makeText(getBaseContext(),"Todos los campos deben diligenciarse",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Todos los campos deben diligenciarse",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getBaseContext(),"Formulario completo",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Formulario completo",Toast.LENGTH_LONG).show();
                 }
 
             }
