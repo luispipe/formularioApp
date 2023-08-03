@@ -53,11 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 //""--> texto vacio
                 //if -> Si Else -> Sino
                 //!= diferente
-                if(name.getText().toString()==""){
-                    //Toast permite crear mensajes emergentes en la pantalla
-                    Toast.makeText(getApplicationContext(),"Todos los campos deben diligenciarse",Toast.LENGTH_LONG).show();
-                }else{
+                //Texto tienen una función para saber si esta vacio
+                // isEmpty()
+                // Conjunción y dinyunsión
+                //     || OR  -- && AND
 
+                if(name.getText().toString().isEmpty()  ||
+                   address.getText().toString().isEmpty() ||
+                   phone.getText().toString().isEmpty() ||
+                   email.getText().toString().isEmpty()
+                ){
+                    //Toast permite crear mensajes emergentes en la pantalla
+                    Toast.makeText(getBaseContext(),"Todos los campos deben diligenciarse",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"Formulario completo",Toast.LENGTH_LONG).show();
                 }
 
             }
