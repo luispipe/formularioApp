@@ -46,13 +46,8 @@ public class MainActivity extends AppCompatActivity {
         house.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (house.isChecked()){
-                    house.setChecked(false);
-                }else{
-                    house.setChecked(true);
-                    farm.setChecked(false);
-                    apart.setChecked(false);
-                }
+                farm.setChecked(false);
+                apart.setChecked(false);
             }
         });
 
@@ -60,26 +55,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(farm.isChecked()){
-                    farm.setChecked(false);
-                }else {
-                    farm.setChecked(true);
-                    house.setChecked(false);
-                    apart.setChecked(false);
-                }
+                house.setChecked(false);
+                apart.setChecked(false);
             }
         });
 
         apart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(apart.isChecked()){
-                    apart.setChecked(false);
-                }else{
-                    apart.setChecked(false);
+
+                    apart.setChecked(true);
                     house.setChecked(false);
                     farm.setChecked(false);
-                }
+
             }
         });
         boton.setOnClickListener(new View.OnClickListener() {
@@ -106,11 +94,40 @@ public class MainActivity extends AppCompatActivity {
                    phone.getText().toString().isEmpty() ||
                    email.getText().toString().isEmpty()
                 ){
-
-
                     //Toast permite crear mensajes emergentes en la pantalla
                     Toast.makeText(getApplicationContext(),"Todos los campos deben diligenciarse",Toast.LENGTH_LONG).show();
                 }else{
+                    String nombre= name.getText().toString();
+                    String direccion= address.getText().toString();
+                    String telefono= phone.getText().toString();
+                    String correo= email.getText().toString();
+                    String radio="";
+                    String checkbox= "";
+                    if(house.isChecked()){
+                        radio= house.getText().toString();
+                    }else if (farm.isChecked()){
+                        radio=farm.getText().toString();
+                    }else{
+                        radio= apart.getText().toString();
+                    }
+                    if(panel.isChecked()){
+                        //Concatenar que es lo mismo que unir
+                        //Para unir texto se usa el +
+                        checkbox=checkbox+" - "+panel.getText().toString();
+                    }
+                    if (aereo.isChecked()){
+                        checkbox=checkbox+" - "+aereo.getText().toString();
+                    }
+                    if (otro.isChecked()){
+                        checkbox=checkbox+" - "+otro.getText().toString();
+                    }
+
+                    resultado.setText(nombre+"-"+direccion+"-"+telefono+"-"
+                    +correo+"-"+radio+"-"+checkbox
+                    );
+
+
+
                     Toast.makeText(getApplicationContext(),"Formulario completo",Toast.LENGTH_LONG).show();
                 }
 
